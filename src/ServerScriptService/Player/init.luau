@@ -118,12 +118,8 @@ local __init = (function()
     Players.PlayerAdded:Connect(connectPlayerAdded)
     Players.PlayerRemoving:Connect(callPlayerRemovingCallbacks)
 
-    if PhysicsService:IsCollisionGroupRegistered("ViewModel") == false then
-        PhysicsService:RegisterCollisionGroup("ViewModel")
-    end
-
-    if PhysicsService:CollisionGroupsAreCollidable("ViewModel", "Default") == true then
-        PhysicsService:CollisionGroupSetCollidable("ViewModel", "Default", false)
+    if PhysicsService:CollisionGroupsAreCollidable("Default", "Default") == true then
+        PhysicsService:CollisionGroupSetCollidable("Default", "Default", false)
     end
 
     for _, info in ipairs(Character.DefaultConnections) do
